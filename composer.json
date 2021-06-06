@@ -1,0 +1,15 @@
+{
+    "name": "welldev004/user-app",
+    "description": "signup and login system",
+    "type": "project",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Amit Biswas",
+            "email": "amitkbiswas01@gmail.com"
+        }
+    ],
+    "require": {
+        "vlucas/phpdotenv": "^5.3"
+    }
+}
