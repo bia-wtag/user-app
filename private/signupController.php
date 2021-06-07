@@ -1,5 +1,14 @@
 <?php
 
+// redirect to homepage if already loggedin
+session_start();
+
+if (isset($_SESSION["loggedin"]) && $_SESSION["loggedin"] === true) {
+    header("location: ../src/homepage.php");
+    exit;
+}
+
+
 use Ramsey\Uuid\Uuid;
 
 require_once("../vendor/autoload.php");
@@ -94,15 +103,15 @@ $full_name = $email = $password = $confirm_password = "";
 // process data at form submit
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
-    $full_name_err = validateFullName($_POST["full_name"]);
-    $email_err = validateEmail($_POST["email"], $mysqli);
-    $password_err = validatePassword($_POST["password"]);
-    $confirm_password_err = validateConfirmedPassword($_POST["password"], $password_err, $_POST["confirm_password"]);
+    $full_name = trim($_POST["full_name"]);
+    $email = trim($_POST["email"]);
+    $password = trim($_POST["password"]);
+    $confirm_password = trim($_POST["confirm_password"]);
 
-    $full_name = $_POST["full_name"];
-    $email = $_POST["email"];
-    $password = $_POST["password"];
-    $confirm_password = $_POST["confirm_password"];
+    $full_name_err = validateFullName($full_name);
+    $email_err = validateEmail($email, $mysqli);
+    $password_err = validatePassword($password);
+    $confirm_password_err = validateConfirmedPassword($password, $password_err, $confirm_password);
 
     if (empty($full_name_err) && empty($email_err) && empty($password_err) && empty($confirm_password_err)) {
         createUser(

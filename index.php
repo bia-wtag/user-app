@@ -1,4 +1,13 @@
 <?php
+// redirect to homepage if already loggedin
+session_start();
+
+if (isset($_SESSION["loggedin"]) && $_SESSION["loggedin"] === true) {
+    header("location: ../src/homepage.php");
+    exit;
+}
+
+
 require_once("./vendor/autoload.php");
 require_once("private/config.php")
 ?>
