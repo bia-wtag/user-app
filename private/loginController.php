@@ -20,16 +20,6 @@ function validateEmail($email)
         return "";
 }
 
-function validatePassword($pass)
-{
-    $pass = trim($pass);
-    if (empty($pass))
-        return "Please enter a password.";
-    else if (strlen($pass) < 8)
-        return "Password must have atleast 8 characters.";
-    else return "";
-}
-
 function validateUser($email, $password, $mysqli)
 {
     // validate user with credentials
@@ -76,7 +66,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $password = trim($_POST["password"]);
 
     $email_err = validateEmail($email);
-    $password_err = validatePassword($password);
 
     if (empty($email_err) && empty($password_err)) {
         $login_err = validateUser($email, $password, $mysqli);

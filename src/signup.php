@@ -16,6 +16,8 @@ require_once("../private/signupController.php");
 </head>
 
 <body>
+    <?php require_once("partials/navbar.php")
+    ?>
     <div class="container px-4 py-5 mt-5">
         <div class="row py-4">
             <h1>Sign Up Form</h1>
