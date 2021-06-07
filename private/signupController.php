@@ -77,7 +77,7 @@ function validateConfirmedPassword($pass, $password_err, $confirm_pass)
 function createUser($full_name, $email, $pass, $mysqli)
 {
     // create user in database
-    $sql = "INSERT INTO users (user, full_name, email, password) VALUES (?, ?, ?, ?)";
+    $sql = "INSERT INTO users (user, full_name, email, password) VALUES (?, ?, ?, ?);";
 
     if ($stmt = $mysqli->prepare($sql)) {
         // generate uuid

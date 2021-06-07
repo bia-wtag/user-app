@@ -19,11 +19,11 @@ require_once("../private/loginController.php");
     <?php require_once("partials/navbar.php")
     ?>
     <div class="container px-4 py-5 mt-5">
-        <div class="row py-4">
+        <div class="form-row mx-auto row py-4">
             <h1>Login Form</h1>
             <p>Please fill the credentials to login.</p>
         </div>
-        <div class="form-row row">
+        <div class="form-row mx-auto  row">
             <?php
             if (!empty($login_err)) {
                 echo '<div class="alert alert-danger">' . $login_err . '</div>';
@@ -46,7 +46,7 @@ require_once("../private/loginController.php");
                 <div class="form-group my-4">
                     <input type="submit" class="btn btn-primary" value="Login">
                 </div>
-                <p>Don't have an account? <a class="text-decoration-none" href="signup.php">Sign up now</a></p>
+                <p>Don't have an account? <a class="text-decoration-none" href="signup.php">Sign up now</a>.</p>
             </form>
         </div>
     </div>

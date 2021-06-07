@@ -1,8 +1,5 @@
 <?php
-
-session_start();
-// session_unset();
-
+require_once("../private/homepageController.php");
 ?>
 
 <!DOCTYPE html>
@@ -20,6 +17,24 @@ session_start();
 <body>
     <?php require_once("partials/navbar.php")
     ?>
+
+    <div class="container d-flex flex-column justify-content-center align-items-start" style="min-height: 100vh;">
+        <div class="table-container w-100">
+            <table class="table table-bordered align-middle">
+                <thead>
+                    <tr>
+                        <th scope="col" style="width: 40%;">Email</th>
+                        <th scope="col" style="width: 35%;">Full Name</th>
+                        <th scope="col" style="width: 25%;">Created at</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <?php getUsers($mysqli); ?>
+                </tbody>
+            </table>
+        </div>
+    </div>
+
 </body>
 
 </html>

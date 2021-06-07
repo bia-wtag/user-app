@@ -23,7 +23,7 @@ function validateEmail($email)
 function validateUser($email, $password, $mysqli)
 {
     // validate user with credentials
-    $sql = "SELECT full_name, email, password FROM users WHERE email = ?";
+    $sql = "SELECT full_name, email, password FROM users WHERE email = ?;";
 
     if ($stmt = $mysqli->prepare($sql)) {
         $stmt->bind_param("s", $email);
@@ -32,6 +32,7 @@ function validateUser($email, $password, $mysqli)
             $stmt->store_result();
 
             if ($stmt->num_rows == 1) {
+
                 $stmt->bind_result($full_name, $email, $hashed_password);
                 if ($stmt->fetch()) {
                     if (password_verify($password, $hashed_password)) {

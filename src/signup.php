@@ -12,18 +12,18 @@ require_once("../private/signupController.php");
     <title>Signup</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
-    <link rel="stylesheet" href="../assets/css/signup.css">
+    <link rel="stylesheet" href="../assets/css/styles.css">
 </head>
 
 <body>
     <?php require_once("partials/navbar.php")
     ?>
     <div class="container px-4 py-5 mt-5">
-        <div class="row py-4">
+        <div class="form-row mx-auto row py-4">
             <h1>Sign Up Form</h1>
             <p>Please fill this form to create an account.</p>
         </div>
-        <div class="form-row row">
+        <div class="form-row mx-auto row">
             <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="POST">
                 <div class="form-group">
                     <label class="mb-1">Full Name</label>
