@@ -7,10 +7,11 @@
 sudo systemctl start mysql.service
 ```
 
-- Run app
+- Run app with Apache
 ```bash
+cd /var/www/html
 git clone https://github.com/bia-wtag/user-app.git
 cd user-app
 composer install
-php -S localhost:3030
 ```
+- Then go to localhost/user-app in the browser.
