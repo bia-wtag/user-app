@@ -14,4 +14,5 @@ git clone https://github.com/bia-wtag/user-app.git
 cd user-app
 composer install
 ```
-- Then go to localhost/user-app in the browser.
+- Create a `.env` file with proper credentiatls of mysql server following `.env.example` format.
+- Go to localhost/user-app in the browser.
