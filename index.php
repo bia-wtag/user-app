@@ -3,7 +3,7 @@
 session_start();
 
 if (isset($_SESSION["loggedin"]) && $_SESSION["loggedin"] === true) {
-    header("location: ../src/homepage.php");
+    header("location: " . $_SESSION["DOCUMENT_ROOT"] . "/user-app/src/homepage.php");
     exit;
 }
 
