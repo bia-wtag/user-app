@@ -14,8 +14,7 @@ require_once("config.php");
 date_default_timezone_set("Asia/Dhaka");
 
 
-function getUsers($mysqli)
-{
+function getUsers($mysqli) {
     $sql = "SELECT user, full_name, email, created_at FROM users;";
 
     $res = $mysqli->query($sql);

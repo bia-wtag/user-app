@@ -11,8 +11,7 @@ if (isset($_SESSION["loggedin"]) && $_SESSION["loggedin"] === true) {
 require_once("../vendor/autoload.php");
 require_once("config.php");
 
-function validateEmail($email)
-{
+function validateEmail($email) {
     $email = trim($email);
     if (empty($email))
         return "Email can't be empty.";
@@ -20,8 +19,7 @@ function validateEmail($email)
         return "";
 }
 
-function validateUser($email, $password, $mysqli)
-{
+function validateUser($email, $password, $mysqli) {
     // validate user with credentials
     $sql = "SELECT full_name, email, password FROM users WHERE email = ?;";
 
@@ -33,7 +31,10 @@ function validateUser($email, $password, $mysqli)
 
             if ($stmt->num_rows == 1) {
 
+                $full_name = $hashed_password = "";
+
                 $stmt->bind_result($full_name, $email, $hashed_password);
+
                 if ($stmt->fetch()) {
                     if (password_verify($password, $hashed_password)) {
 

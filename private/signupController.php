@@ -14,8 +14,7 @@ use Ramsey\Uuid\Uuid;
 require_once("../vendor/autoload.php");
 require_once("config.php");
 
-function doesExist($email, $mysqli)
-{
+function doesExist($email, $mysqli) {
     // check database to see if email already exists
     $query = "SELECT * FROM users WHERE email = ?";
 
@@ -33,8 +32,7 @@ function doesExist($email, $mysqli)
     }
 }
 
-function validateFullName($full_name)
-{
+function validateFullName($full_name) {
     $full_name = trim($full_name);
     if (empty($full_name))
         return "Name can't be empty.";
@@ -43,8 +41,7 @@ function validateFullName($full_name)
     else return "";
 }
 
-function validateEmail($email, $mysqli)
-{
+function validateEmail($email, $mysqli) {
     $email = trim($email);
     if (empty($email))
         return "Email can't be empty";
@@ -52,8 +49,7 @@ function validateEmail($email, $mysqli)
     return doesExist($email, $mysqli);
 }
 
-function validatePassword($pass)
-{
+function validatePassword($pass) {
     $pass = trim($pass);
     if (empty($pass))
         return "Please enter a password.";
@@ -62,8 +58,7 @@ function validatePassword($pass)
     else return "";
 }
 
-function validateConfirmedPassword($pass, $password_err, $confirm_pass)
-{
+function validateConfirmedPassword($pass, $password_err, $confirm_pass) {
     $confirm_pass = trim($confirm_pass);
     $pass = trim($pass);
 
@@ -74,8 +69,7 @@ function validateConfirmedPassword($pass, $password_err, $confirm_pass)
     else return "";
 }
 
-function createUser($full_name, $email, $pass, $mysqli)
-{
+function createUser($full_name, $email, $pass, $mysqli) {
     // create user in database
     $sql = "INSERT INTO users (user, full_name, email, password) VALUES (?, ?, ?, ?);";
 
